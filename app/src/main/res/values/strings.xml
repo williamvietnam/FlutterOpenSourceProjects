@@ -3,4 +3,6 @@
     <string name="delete"><u>Xoá</u></string>
     <string name="title">{title}</string>
     <string name="content">{content}</string>
+    <string name="old_way">Cách cũ</string>
+    <string name="new_way">Cách mới</string>
 </resources>

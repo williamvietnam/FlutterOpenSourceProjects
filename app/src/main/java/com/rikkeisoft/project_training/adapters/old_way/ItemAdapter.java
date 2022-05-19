@@ -1,4 +1,4 @@
-package com.rikkeisoft.project_training.adapters;
+package com.rikkeisoft.project_training.adapters.old_way;
 
 import android.content.Context;
 import android.view.LayoutInflater;

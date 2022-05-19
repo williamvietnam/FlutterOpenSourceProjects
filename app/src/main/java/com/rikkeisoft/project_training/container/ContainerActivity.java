@@ -1,18 +1,22 @@
 package com.rikkeisoft.project_training.container;
 
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.rikkeisoft.project_training.views.MainFragment;
+import com.google.android.material.navigation.NavigationBarView;
 import com.rikkeisoft.project_training.R;
 import com.rikkeisoft.project_training.databinding.ActivityContainerBinding;
+import com.rikkeisoft.project_training.views.NewWayFragment;
+import com.rikkeisoft.project_training.views.OldWayFragment;
 
 public class ContainerActivity extends AppCompatActivity {
 
     private ActivityContainerBinding binding;
-    private MainFragment mainFragment;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -20,19 +24,44 @@ public class ContainerActivity extends AppCompatActivity {
         binding = ActivityContainerBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        showMainFragment();
+        showOldWayFragment();
+
+        binding.bottomNav.setOnItemSelectedListener(onItemSelectedListener);
     }
 
-    public void showMainFragment() {
-        if (mainFragment == null) {
-            mainFragment = new MainFragment();
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.fragmentContainerView, mainFragment, MainFragment.class.getName())
-                    .addToBackStack(MainFragment.class.getName())
-                    .show(mainFragment)
-                    .commit();
+    private final NavigationBarView.OnItemSelectedListener onItemSelectedListener = new NavigationBarView.OnItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            if (item.getItemId() == R.id.navigationOldWay) {
+                showOldWayFragment();
+                Toast.makeText(ContainerActivity.this, "Sử dụng RecyclerView Adapter", Toast.LENGTH_SHORT).show();
+                return true;
+            } else if (item.getItemId() == R.id.navigationNewWay) {
+                showNewWayFragment();
+                Toast.makeText(ContainerActivity.this, "Sử dụng DiffUtil & ListAdapter", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+            return false;
         }
-        mainFragment = (MainFragment) getSupportFragmentManager().findFragmentByTag(MainFragment.class.getName());
+    };
+
+    private void showOldWayFragment() {
+        OldWayFragment oldWayFragment = new OldWayFragment();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragmentContainerView, oldWayFragment, OldWayFragment.class.getName())
+                .addToBackStack(OldWayFragment.class.getName())
+                .show(oldWayFragment)
+                .commit();
+    }
+
+    private void showNewWayFragment() {
+        NewWayFragment newWayFragment = new NewWayFragment();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragmentContainerView, newWayFragment, NewWayFragment.class.getName())
+                .addToBackStack(NewWayFragment.class.getName())
+                .show(newWayFragment)
+                .commit();
     }
 }
