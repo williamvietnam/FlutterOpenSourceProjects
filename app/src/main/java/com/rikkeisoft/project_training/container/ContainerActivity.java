@@ -1,10 +1,12 @@
-package com.rikkeisoft.project_training;
+package com.rikkeisoft.project_training.container;
 
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.rikkeisoft.project_training.views.MainFragment;
+import com.rikkeisoft.project_training.R;
 import com.rikkeisoft.project_training.databinding.ActivityContainerBinding;
 
 public class ContainerActivity extends AppCompatActivity {
@@ -33,5 +35,4 @@ public class ContainerActivity extends AppCompatActivity {
         }
         mainFragment = (MainFragment) getSupportFragmentManager().findFragmentByTag(MainFragment.class.getName());
     }
-
 }

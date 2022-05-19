@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/item_one" />
+                tools:listitem="@layout/sub_item_one" />
 
         </RelativeLayout>
 
@@ -55,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/item_two" />
+                tools:listitem="@layout/sub_item_two" />
         </RelativeLayout>
 
     </ScrollView>

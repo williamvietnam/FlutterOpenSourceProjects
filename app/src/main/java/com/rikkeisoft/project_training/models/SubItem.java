@@ -1,18 +1,18 @@
 package com.rikkeisoft.project_training.models;
 
-public class ChildModel {
+public class SubItem {
     private int imageRes;
     private String content;
 
-    public ChildModel() {
+    public SubItem() {
 
     }
 
-    public ChildModel(int imageRes) {
+    public SubItem(int imageRes) {
         this.imageRes = imageRes;
     }
 
-    public ChildModel(int imageRes, String content) {
+    public SubItem(int imageRes, String content) {
         this.imageRes = imageRes;
         this.content = content;
     }

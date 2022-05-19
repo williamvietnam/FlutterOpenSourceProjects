@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project_Training"
         tools:targetApi="31">
-        <activity android:name=".ContainerActivity"
+        <activity android:name=".container.ContainerActivity"
             android:exported="true">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
