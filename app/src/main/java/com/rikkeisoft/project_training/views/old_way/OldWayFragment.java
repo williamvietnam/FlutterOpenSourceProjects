@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.rikkeisoft.project_training.adapters.old_way.ItemAdapter;
+import com.rikkeisoft.project_training.adapters.old_way_recyclerview_adapter.ItemAdapter;
 import com.rikkeisoft.project_training.data.mock.MainRepository;
 import com.rikkeisoft.project_training.databinding.FragmentOldWayBinding;
 import com.rikkeisoft.project_training.models.Item;

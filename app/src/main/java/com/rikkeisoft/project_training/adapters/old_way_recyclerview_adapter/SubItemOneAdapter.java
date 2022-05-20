@@ -1,4 +1,4 @@
-package com.rikkeisoft.project_training.adapters.old_way;
+package com.rikkeisoft.project_training.adapters.old_way_recyclerview_adapter;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;

@@ -1,4 +1,4 @@
-package com.rikkeisoft.project_training.adapters.new_way;
+package com.rikkeisoft.project_training.adapters.new_way_list_adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.rikkeisoft.project_training.adapters.new_way.clicked.OnSubItem1Clicked;
-import com.rikkeisoft.project_training.adapters.new_way.clicked.OnSubItem2Clicked;
-import com.rikkeisoft.project_training.adapters.new_way.clicked.OnSubItem3Clicked;
+import com.rikkeisoft.project_training.adapters.new_way_list_adapter.clicked.OnSubItem1Clicked;
+import com.rikkeisoft.project_training.adapters.new_way_list_adapter.clicked.OnSubItem2Clicked;
+import com.rikkeisoft.project_training.adapters.new_way_list_adapter.clicked.OnSubItem3Clicked;
 import com.rikkeisoft.project_training.databinding.ItemParentBinding;
 import com.rikkeisoft.project_training.models.Item;
 import com.rikkeisoft.project_training.models.SubItem;

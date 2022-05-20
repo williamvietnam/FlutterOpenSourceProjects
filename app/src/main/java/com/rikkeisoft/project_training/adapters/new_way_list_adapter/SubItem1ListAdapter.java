@@ -1,4 +1,4 @@
-package com.rikkeisoft.project_training.adapters.new_way;
+package com.rikkeisoft.project_training.adapters.new_way_list_adapter;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.rikkeisoft.project_training.adapters.new_way.clicked.OnSubItem1Clicked;
+import com.rikkeisoft.project_training.adapters.new_way_list_adapter.clicked.OnSubItem1Clicked;
 import com.rikkeisoft.project_training.databinding.SubItemOneBinding;
 import com.rikkeisoft.project_training.models.SubItem;
 

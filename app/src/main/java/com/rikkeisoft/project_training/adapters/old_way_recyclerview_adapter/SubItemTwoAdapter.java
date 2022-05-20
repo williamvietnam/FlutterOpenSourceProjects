@@ -1,4 +1,4 @@
-package com.rikkeisoft.project_training.adapters.old_way;
+package com.rikkeisoft.project_training.adapters.old_way_recyclerview_adapter;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -6,22 +6,23 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.rikkeisoft.project_training.databinding.SubItemThreeBinding;
+import com.rikkeisoft.project_training.databinding.SubItemTwoBinding;
 import com.rikkeisoft.project_training.models.SubItem;
 
 import java.util.List;
 
-public class SubItemThreeAdapter extends RecyclerView.Adapter<SubItemThreeAdapter.ViewHolder> {
+public class SubItemTwoAdapter extends RecyclerView.Adapter<SubItemTwoAdapter.ViewHolder> {
+
     private final List<SubItem> listItem;
 
-    public SubItemThreeAdapter(List<SubItem> listItem) {
+    public SubItemTwoAdapter(List<SubItem> listItem) {
         this.listItem = listItem;
     }
 
     @NonNull
     @Override
-    public SubItemThreeAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new SubItemThreeAdapter.ViewHolder(SubItemThreeBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new ViewHolder(SubItemTwoBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
     }
 
     @Override
@@ -38,12 +39,13 @@ public class SubItemThreeAdapter extends RecyclerView.Adapter<SubItemThreeAdapte
         return listItem.size();
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder {
-        private final SubItemThreeBinding binding;
 
-        ViewHolder(@NonNull SubItemThreeBinding itemThreeBinding) {
-            super(itemThreeBinding.getRoot());
-            binding = itemThreeBinding;
+    static class ViewHolder extends RecyclerView.ViewHolder {
+        private final SubItemTwoBinding binding;
+
+        public ViewHolder(@NonNull SubItemTwoBinding itemTwoBinding) {
+            super(itemTwoBinding.getRoot());
+            this.binding = itemTwoBinding;
         }
 
         void setData(@NonNull SubItem item) {
