@@ -11,8 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.navigation.NavigationBarView;
 import com.rikkeisoft.project_training.R;
 import com.rikkeisoft.project_training.databinding.ActivityContainerBinding;
-import com.rikkeisoft.project_training.views.NewWayFragment;
-import com.rikkeisoft.project_training.views.OldWayFragment;
+import com.rikkeisoft.project_training.views.new_way.NewWayFragment;
+import com.rikkeisoft.project_training.views.old_way.OldWayFragment;
+import com.rikkeisoft.project_training.views.tab_game.GameFragment;
 
 public class ContainerActivity extends AppCompatActivity {
 
@@ -40,6 +41,9 @@ public class ContainerActivity extends AppCompatActivity {
                 showNewWayFragment();
                 Toast.makeText(ContainerActivity.this, "Sử dụng DiffUtil & ListAdapter", Toast.LENGTH_SHORT).show();
                 return true;
+            } else if (item.getItemId() == R.id.navigationGame) {
+                showGameFragment();
+                return true;
             }
             return false;
         }
@@ -62,6 +66,16 @@ public class ContainerActivity extends AppCompatActivity {
                 .replace(R.id.fragmentContainerView, newWayFragment, NewWayFragment.class.getName())
                 .addToBackStack(NewWayFragment.class.getName())
                 .show(newWayFragment)
+                .commit();
+    }
+
+    private void showGameFragment() {
+        GameFragment gameFragment = new GameFragment();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragmentContainerView, gameFragment, GameFragment.class.getName())
+                .addToBackStack(GameFragment.class.getName())
+                .show(gameFragment)
                 .commit();
     }
 }

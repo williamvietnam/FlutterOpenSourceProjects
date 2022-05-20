@@ -36,7 +36,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
         Item item = listItemItem.get(position);
         if (position == 0) {
             SubItemOneAdapter subItemOneAdapter = new SubItemOneAdapter(item.getSubItems());
-            holder.binding.tvTitle.setText(listItemItem.get(position).getTitle());
+            holder.binding.tvTitle.setText(item.getTitle());
             holder.binding.verticalScroll.setVisibility(View.GONE);
             holder.binding.horizontalScroll.setVisibility(View.VISIBLE);
             holder.binding.rcvMainHorizontal.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
@@ -44,7 +44,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
 
         } else if (position == 1) {
             SubItemTwoAdapter subItemTwoAdapter = new SubItemTwoAdapter(item.getSubItems());
-            holder.binding.tvTitle.setText(listItemItem.get(position).getTitle());
+            holder.binding.tvTitle.setText(item.getTitle());
             holder.binding.horizontalScroll.setVisibility(View.GONE);
             holder.binding.verticalScroll.setVisibility(View.VISIBLE);
             holder.binding.rcvMainVertical.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
@@ -52,7 +52,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
 
         } else if (position == 2) {
             SubItemThreeAdapter subItemThreeAdapter = new SubItemThreeAdapter(item.getSubItems());
-            holder.binding.tvTitle.setText(listItemItem.get(position).getTitle());
+            holder.binding.tvTitle.setText(item.getTitle());
             holder.binding.horizontalScroll.setVisibility(View.GONE);
             holder.binding.verticalScroll.setVisibility(View.VISIBLE);
             holder.binding.rcvMainVertical.setLayoutManager(new GridLayoutManager(context, 2));
@@ -65,7 +65,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
         return 3;
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder {
+    static class MyViewHolder extends RecyclerView.ViewHolder {
         private final ItemParentBinding binding;
 
         public MyViewHolder(ItemParentBinding itemParentBinding) {

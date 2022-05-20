@@ -48,7 +48,7 @@ public class SubItemOneAdapter extends RecyclerView.Adapter<SubItemOneAdapter.Vi
             binding = itemOneBinding;
         }
 
-        void setData(SubItem item) {
+        void setData(@NonNull SubItem item) {
             binding.imageView.setImageResource(item.getImageRes());
         }
     }

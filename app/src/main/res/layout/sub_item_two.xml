@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
@@ -25,9 +26,9 @@
         android:gravity="center_vertical"
         android:paddingStart="8dp"
         android:paddingEnd="0dp"
-        android:text="Bai 1"
         android:textSize="22sp"
-        android:textStyle="bold|italic" />
+        android:textStyle="bold|italic"
+        tool:text="Bai 1" />
 
     <TextView
         android:id="@+id/tvDelete"

@@ -1,7 +1,6 @@
 package com.rikkeisoft.project_training.adapters.old_way;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -29,12 +28,9 @@ public class SubItemTwoAdapter extends RecyclerView.Adapter<SubItemTwoAdapter.Vi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.setData(listItem.get(position));
-        holder.binding.tvDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                listItem.remove(holder.getAdapterPosition());
-                notifyItemRemoved(holder.getAdapterPosition());
-            }
+        holder.binding.tvDelete.setOnClickListener(view -> {
+            listItem.remove(holder.getAdapterPosition());
+            notifyItemRemoved(holder.getAdapterPosition());
         });
     }
 
@@ -47,12 +43,12 @@ public class SubItemTwoAdapter extends RecyclerView.Adapter<SubItemTwoAdapter.Vi
     static class ViewHolder extends RecyclerView.ViewHolder {
         private final SubItemTwoBinding binding;
 
-        public ViewHolder(SubItemTwoBinding itemTwoBinding) {
+        public ViewHolder(@NonNull SubItemTwoBinding itemTwoBinding) {
             super(itemTwoBinding.getRoot());
             this.binding = itemTwoBinding;
         }
 
-        void setData(SubItem item) {
+        void setData(@NonNull SubItem item) {
             binding.imageView.setImageResource(item.getImageRes());
             binding.tvContent.setText(item.getContent());
         }

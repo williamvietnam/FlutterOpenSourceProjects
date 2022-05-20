@@ -1,4 +1,4 @@
-package com.rikkeisoft.project_training.views;
+package com.rikkeisoft.project_training.views.old_way;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -22,7 +22,6 @@ import java.util.List;
 
 public class OldWayFragment extends Fragment {
     private FragmentOldWayBinding binding;
-    private ItemAdapter itemAdapter;
     private ArrayList<Item> items;
     MainRepository mainRepository;
 
@@ -46,38 +45,17 @@ public class OldWayFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        List<SubItem> subItems1 = new ArrayList<>();
-        subItems1 = mainRepository.dataMockItemChildOne();
+        List<SubItem> subItems1 = mainRepository.dataMockItemChildOne();
         items.add(new Item("List songs", subItems1));
 
-        List<SubItem> subItems2 = new ArrayList<>();
-        subItems2 = mainRepository.dataMockItemChildTwo();
+        List<SubItem> subItems2 = mainRepository.dataMockItemChildTwo();
         items.add(new Item("New songs", subItems2));
 
-        List<SubItem> subItems3 = new ArrayList<>();
-        subItems3 = mainRepository.dataMockItemChildThree();
+        List<SubItem> subItems3 = mainRepository.dataMockItemChildThree();
         items.add(new Item("Favorite songs", subItems3));
 
-        itemAdapter = new ItemAdapter(items, requireContext());
+        ItemAdapter itemAdapter = new ItemAdapter(items, requireContext());
         binding.rcvMain.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false));
         binding.rcvMain.setAdapter(itemAdapter);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        Log.d("Fragment", "onResume()...OldWay");
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        Log.d("Fragment", "onDestroyView()...OldWay");
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        Log.d("Fragment", "onDestroy()...OldWay");
     }
 }

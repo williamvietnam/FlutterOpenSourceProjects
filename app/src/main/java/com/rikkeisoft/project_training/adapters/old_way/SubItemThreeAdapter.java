@@ -1,7 +1,6 @@
 package com.rikkeisoft.project_training.adapters.old_way;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -28,12 +27,9 @@ public class SubItemThreeAdapter extends RecyclerView.Adapter<SubItemThreeAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.setData(listItem.get(position));
-        holder.binding.tvDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                listItem.remove(holder.getAdapterPosition());
-                notifyItemRemoved(holder.getAdapterPosition());
-            }
+        holder.binding.tvDelete.setOnClickListener(view -> {
+            listItem.remove(holder.getAdapterPosition());
+            notifyItemRemoved(holder.getAdapterPosition());
         });
     }
 
@@ -45,7 +41,7 @@ public class SubItemThreeAdapter extends RecyclerView.Adapter<SubItemThreeAdapte
     static class ViewHolder extends RecyclerView.ViewHolder {
         private final SubItemThreeBinding binding;
 
-        ViewHolder(SubItemThreeBinding itemThreeBinding) {
+        ViewHolder(@NonNull SubItemThreeBinding itemThreeBinding) {
             super(itemThreeBinding.getRoot());
             binding = itemThreeBinding;
         }
