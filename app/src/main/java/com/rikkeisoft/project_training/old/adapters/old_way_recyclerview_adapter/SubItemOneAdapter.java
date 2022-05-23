@@ -43,7 +43,7 @@ public class SubItemOneAdapter extends RecyclerView.Adapter<SubItemOneAdapter.Vi
     static class ViewHolder extends RecyclerView.ViewHolder {
         private final SubItemOneBinding binding;
 
-        ViewHolder(SubItemOneBinding itemOneBinding) {
+        ViewHolder(@NonNull SubItemOneBinding itemOneBinding) {
             super(itemOneBinding.getRoot());
             binding = itemOneBinding;
         }

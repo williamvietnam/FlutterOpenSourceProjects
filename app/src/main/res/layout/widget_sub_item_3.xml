@@ -7,4 +7,5 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+    app:spanCount="2"
     tools:listitem="@layout/sub_item_three" />

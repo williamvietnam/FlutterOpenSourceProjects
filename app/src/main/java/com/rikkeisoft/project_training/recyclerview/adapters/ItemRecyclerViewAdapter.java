@@ -1,35 +1,38 @@
 package com.rikkeisoft.project_training.recyclerview.adapters;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.rikkeisoft.project_training.databinding.WidgetSubItem1Binding;
 import com.rikkeisoft.project_training.databinding.WidgetSubItem2Binding;
 import com.rikkeisoft.project_training.databinding.WidgetSubItem3Binding;
 import com.rikkeisoft.project_training.databinding.WidgetSubItemTitleBinding;
+import com.rikkeisoft.project_training.old.adapters.old_way_recyclerview_adapter.SubItemOneAdapter;
+import com.rikkeisoft.project_training.old.adapters.old_way_recyclerview_adapter.SubItemThreeAdapter;
+import com.rikkeisoft.project_training.old.adapters.old_way_recyclerview_adapter.SubItemTwoAdapter;
+import com.rikkeisoft.project_training.old.data.mock.MainRepository;
+import com.rikkeisoft.project_training.old.models.SubItem;
 import com.rikkeisoft.project_training.recyclerview.models.Item;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ItemRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private final List<Item> itemList;
-    private final Context context;
+    private final MainRepository mainRepository;
 
     public static final int VIEW_TYPE_TITLE = 0;
     public static final int VIEW_TYPE_ONE = 1;
     public static final int VIEW_TYPE_TWO = 2;
     public static final int VIEW_TYPE_THREE = 3;
 
-    public ItemRecyclerViewAdapter(List<Item> itemList, Context context) {
+    public ItemRecyclerViewAdapter(List<Item> itemList, MainRepository mainRepository) {
         this.itemList = itemList;
-        this.context = context;
+        this.mainRepository = mainRepository;
     }
 
     @NonNull
@@ -53,11 +56,17 @@ public class ItemRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         if (getItemViewType(position) == VIEW_TYPE_ONE) {
-            ((WidgetSubItemOneHolder) holder).bindData(itemList.get(position), context);
+            ArrayList<SubItem> subItems = mainRepository.dataMockItemChildOne();
+            SubItemOneAdapter adapter = new SubItemOneAdapter(subItems);
+            ((WidgetSubItemOneHolder) holder).bindData(adapter);
         } else if (getItemViewType(position) == VIEW_TYPE_TWO) {
-            ((WidgetSubItemTwoHolder) holder).bindData(itemList.get(position), context);
+            ArrayList<SubItem> subItems = mainRepository.dataMockItemChildTwo();
+            SubItemTwoAdapter adapter = new SubItemTwoAdapter(subItems);
+            ((WidgetSubItemTwoHolder) holder).bindData(adapter);
         } else if (getItemViewType(position) == VIEW_TYPE_THREE) {
-            ((WidgetSubItemThreeHolder) holder).bindData(itemList.get(position), context);
+            ArrayList<SubItem> subItems = mainRepository.dataMockItemChildThree();
+            SubItemThreeAdapter adapter = new SubItemThreeAdapter(subItems);
+            ((WidgetSubItemThreeHolder) holder).bindData(adapter);
         } else {
             ((WidgetSubItemTitleHolder) holder).bindData(itemList.get(position));
         }
@@ -74,11 +83,11 @@ public class ItemRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
 
     @Override
     public int getItemViewType(int position) {
-        if (itemList.get(position).getId() == VIEW_TYPE_ONE) {
+        if (itemList.get(position).getViewType() == VIEW_TYPE_ONE) {
             return VIEW_TYPE_ONE;
-        } else if (itemList.get(position).getId() == VIEW_TYPE_TWO) {
+        } else if (itemList.get(position).getViewType() == VIEW_TYPE_TWO) {
             return VIEW_TYPE_TWO;
-        } else if (itemList.get(position).getId() == VIEW_TYPE_THREE) {
+        } else if (itemList.get(position).getViewType() == VIEW_TYPE_THREE) {
             return VIEW_TYPE_THREE;
         }
         return VIEW_TYPE_TITLE;
@@ -105,10 +114,8 @@ public class ItemRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
             this.binding = subItemOneBinding;
         }
 
-        public void bindData(@NonNull Item item, Context context) {
-            binding.rcvSubItem1.setAdapter(item.getSubItemOneAdapter());
-            binding.rcvSubItem1.setLayoutManager(
-                    new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
+        public void bindData(@NonNull SubItemOneAdapter adapter) {
+            binding.rcvSubItem1.setAdapter(adapter);
         }
     }
 
@@ -120,10 +127,8 @@ public class ItemRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
             this.binding = subItemTwoBinding;
         }
 
-        public void bindData(@NonNull Item item, Context context) {
-            binding.rcvSubItem2.setAdapter(item.getSubItemTwoAdapter());
-            binding.rcvSubItem2.setLayoutManager(
-                    new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
+        public void bindData(@NonNull SubItemTwoAdapter adapter) {
+            binding.rcvSubItem2.setAdapter(adapter);
         }
     }
 
@@ -135,10 +140,8 @@ public class ItemRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
             this.binding = subItemThreeBinding;
         }
 
-        public void bindData(@NonNull Item item, Context context) {
-            binding.rcvSubItem3.setAdapter(item.getSubItemThreeAdapter());
-            binding.rcvSubItem3.setLayoutManager(
-                    new GridLayoutManager(context, 2));
+        public void bindData(@NonNull SubItemThreeAdapter adapter) {
+            binding.rcvSubItem3.setAdapter(adapter);
         }
     }
 }
