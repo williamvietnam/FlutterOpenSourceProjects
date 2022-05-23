@@ -12,12 +12,12 @@
         app:cardCornerRadius="8dp">
 
         <ImageView
-            android:contentDescription="@string/app_name"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_music_1"
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_music_1" />
     </androidx.cardview.widget.CardView>
 
     <TextView
