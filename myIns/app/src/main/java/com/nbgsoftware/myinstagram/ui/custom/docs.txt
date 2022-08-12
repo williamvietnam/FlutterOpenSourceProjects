@@ -1,0 +1,1 @@
+bottomNav: https://github.com/DaaniDev/jetpack_compose_animations/tree/master/app/src/main/java/com/daanidev/compose/bottomnav
