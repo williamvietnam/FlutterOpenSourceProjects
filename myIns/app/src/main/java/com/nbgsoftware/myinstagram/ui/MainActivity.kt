@@ -1,4 +1,4 @@
-package com.nbgsoftware.myinstagram
+package com.nbgsoftware.myinstagram.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
