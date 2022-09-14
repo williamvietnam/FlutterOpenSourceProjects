@@ -2,6 +2,11 @@ package com.nbgsoftware.myinstagram.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
+val Primary = Color(0xFFBB86FC)
+val SecondPrimary = Color(0xFFBB86FC)
+val Background = Color(0xFFBB86FC)
+val SecondBackground = Color(0xFFBB86FC)
+
 val Purple200 = Color(0xFFBB86FC)
 val Purple500 = Color(0xFF6200EE)
 val Purple700 = Color(0xFF3700B3)
