@@ -1,4 +1,4 @@
-package com.compose.knowledges.lesson_6
+package com.compose.tutorials.lesson_6
 
 class TextFieldsButtonsShowingSnackBars {
 
