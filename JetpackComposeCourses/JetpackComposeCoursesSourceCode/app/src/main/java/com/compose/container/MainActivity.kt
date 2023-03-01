@@ -1,4 +1,4 @@
-package com.compose
+package com.compose.container
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
