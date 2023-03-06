@@ -6,7 +6,7 @@ plugins {
 
 kotlin {
     android()
-
+    
     listOf(
         iosX64(),
         iosArm64(),
@@ -18,11 +18,15 @@ kotlin {
     }
 
     sourceSets {
-        val commonMain by getting
-        val commonTest by getting {
+        val commonMain by getting {
             dependencies {
                 implementation("com.squareup.sqldelight:runtime:1.5.3")
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
+            }
+        }
+        val commonTest by getting {
+            dependencies {
+                implementation(kotlin("test"))
             }
         }
         val androidMain by getting {
@@ -56,11 +60,18 @@ kotlin {
     }
 }
 
+sqldelight {
+    database("NoteDatabase") {
+        packageName = "com.plcoding.noteappkmm.database"
+        sourceFolders = listOf("sqldelight")
+    }
+}
+
 android {
-    namespace = "com.notes"
+    namespace = "com.plcoding.noteappkmm"
     compileSdk = 33
     defaultConfig {
-        minSdk = 23
+        minSdk = 21
         targetSdk = 33
     }
 }
