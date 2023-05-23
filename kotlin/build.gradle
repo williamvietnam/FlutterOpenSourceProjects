@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.android.utilities'
+    namespace 'com.android.utilities.kotlin'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.android.utilities"
+        applicationId "com.android.utilities.kotlin"
         minSdk 23
         targetSdk 33
         versionCode 1
@@ -28,14 +28,16 @@ android {
         targetCompatibility JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = '11'
+        jvmTarget = '1.8'
     }
 }
 
 dependencies {
+
     implementation 'androidx.core:core-ktx:1.10.1'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
